@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}" />
+    <title>Croning Daft</title>
+</head>
+
+<body>
+
+    <form action="/" role="form" method="post">
+        <fieldset>
+            <div class="row">
+                <div class="column">
+                    <label for="name">Name</label>
+                    <input type="text" placeholder="Jo Doe" required id="name" name="name" />
+                </div>
+                <div class="column">
+                    <label for="email">Email</label>
+                    <input type="text" placeholder="jo@doe.ie" required id="email" name="email" />
+                </div>
+                <div class="column">
+                    <label for="phone">Phone</label>
+                    <input type="text" placeholder="085 888 8888" required id="phone" name="phone" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="minAmount">Min Amount</label>
+                    <input type="text" placeholder="300" id="minAmount" required name="minAmount" />
+                </div>
+                <div class="column">
+                    <label for="maxAmount">Max Amount</label>
+                    <input type="text" placeholder="1500" id="maxAmount" required name="maxAmount" />
+                </div>
+                <div class="column">
+                    <label for="rentalType">Accommodation Type</label>
+                    <select id="rentalType" name="accType">
+                        <option value="ANY">ANY</option>
+                        <option value="APARTMENTS">APARTMENTS</option>
+                        <option value="STUDIO">STUDIO</option>
+                        <option value="FLAT">FLAT</option>
+                        <option value="SHORT_TERM">SHORT_TERM</option>
+                        <option value="STUDENT_ACCOMMODATION">STUDENT_ACCOMMODATION</option>
+                        <option value="PARKING_SPACES">PARKING_SPACES</option>
+                        <option value="ROOMS_TO_SHARE">ROOMS_TO_SHARE</option>
+                        <option value="FLAT_TO_SHARE">FLAT_TO_SHARE</option>
+                        <option value="APARTMENT_TO_SHARE">APARTMENT_TO_SHARE</option>
+                        <option value="HOUSE_SHARE">HOUSE_SHARE</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <label for="place">County</label>
+                    <select name="location" id="place">
+                        <option value="ALL">ALL</option>
+                        <option value="ANTRIM">ANTRIM</option>
+                        <option value="ARMAGH">ARMAGH</option>
+                        <option value="CARLOW">CARLOW</option>
+                        <option value="CAVAN">CAVAN</option>
+                        <option value="CLARE">CLARE</option>
+                        <option value="CORK">CORK</option>
+                        <option value="DERRY">DERRY</option>
+                        <option value="DONEGAL">DONEGAL</option>
+                        <option value="DOWN">DOWN</option>
+                        <option value="DUBLIN">DUBLIN</option>
+                        <option value="FERMANAGH">FERMANAGH</option>
+                        <option value="GALWAY">GALWAY</option>
+                        <option value="KERRY">KERRY</option>
+                        <option value="KILDARE">KILDARE</option>
+                        <option value="KILKENNY">KILKENNY</option>
+                        <option value="LAOIS">LAOIS</option>
+                        <option value="LEITRIM">LEITRIM</option>
+                        <option value="LIMERICK">LIMERICK</option>
+                        <option value="LONGFORD">LONGFORD</option>
+                        <option value="LOUTH">LOUTH</option>
+                        <option value="MAYO">MAYO</option>
+                        <option value="MEATH">MEATH</option>
+                        <option value="MONAGHAN">MONAGHAN</option>
+                        <option value="OFFALY">OFFALY</option>
+                        <option value="ROSCOMMON">ROSCOMMON</option>
+                        <option value="SLIGO">SLIGO</option>
+                        <option value="TIPPERARY">TIPPERARY</option>
+                        <option value="TYRONE">TYRONE</option>
+                        <option value="WATERFORD">WATERFORD</option>
+                        <option value="WESTMEATH">WESTMEATH</option>
+                        <option value="WEXFORD">WEXFORD</option>
+                        <option value="WICKLOW">WICKLOW</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <label for="message">Message</label>
+                    <textarea name="message" required placeholder="Hi, I've just seen your add on Daft …" id="message"></textarea>
+                </div>
+            </div>
+            <input class="button-primary" type="submit" value="Send">
+        </fieldset>
+    </form>
+</body>
+
+</html>
