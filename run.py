@@ -12,9 +12,12 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from flask import Flask, render_template, jsonify, request, url_for, redirect
 from daftlistings import Daft, CommercialType, RentType
+from celery import Celery
+from celery.task import task
 
-
-
+app = Celery('app', broker='amqp://localhost//')
+celery = Celery()
+celery.config_from_object('celery_config')
 scheduler = BackgroundScheduler()
 
 conn = sqlite3.connect(":memory:", check_same_thread = False)
@@ -34,6 +37,7 @@ def data_entry(listingID,listingLink):
 
 create_table()
 
+
 def userSearchCriteria(county, rent_type, min_amount, max_amount):
     daft = Daft()
     daft.set_county(county)
@@ -42,6 +46,7 @@ def userSearchCriteria(county, rent_type, min_amount, max_amount):
     daft.set_max_price(max_amount)
     print('running search ...')
     return daft.search()
+
 
 def listing_mailer(listings, form_name, form_phone, form_email, form_message):
     
@@ -80,6 +85,7 @@ def index():
         county = request.form['location']
         form_message = request.form['message']
 
+        @task
         def job():
             print("Scheduler running ...")
             listings = userSearchCriteria(county, rent_type, min_amount, max_amount)
